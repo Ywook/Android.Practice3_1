@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView textView1, textView2;
 
-    double Official = 3.3058;
+    double Official = 3.305785;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,16 +100,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void changeToMeter(){
-        String s1 = editText2.getText().toString();
-        double result = Math.round(Integer.parseInt(s1)*Official*10000)/10000;
+        String s1 = editText3.getText().toString();
+        double result = Double.parseDouble(s1)*Official;
         textView2.setText(result + " 제곱미터");
 
     }
 
     void changeToPyeong(){
         String s1 = editText3.getText().toString();
-
-        double result = parseDouble(s1)/Official;
+        double result = Math.round(Double.parseDouble(s1)/Official*100)/100.0;
         textView2.setText(result+" 평");
     }
 }
