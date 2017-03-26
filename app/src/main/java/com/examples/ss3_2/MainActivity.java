@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
 
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     TextView textView1, textView2;
 
     double Official = 3.305785;
+
+    FrameLayout frameLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         btn2 = (Button) findViewById(R.id.button3);
         btn3 = (Button) findViewById(R.id.button4);
 
+        frameLayout = (FrameLayout) findViewById(android.R.id.tabcontent);
+
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,6 +77,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 changeToPyeong();
+            }
+        });
+
+        tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String s) {
+                switch (s) {
+                    case "1":
+                        frameLayout.setBackgroundColor(Color.parseColor("#FFFFbb33"));
+                        break;
+                    case "2":
+                        frameLayout.setBackgroundColor(Color.parseColor("#ff00ddff"));
+                        break;
+
+                }
+
             }
         });
     }
